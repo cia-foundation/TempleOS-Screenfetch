@@ -141,4 +141,6 @@ U0 Screenfetch() {
   Line();
   Line();
   Line();
+
+  "$FG$";
 }
