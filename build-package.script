@@ -1,0 +1,11 @@
+# vim: set ft=bash:
+
+# Screenfetch
+command	DirMk("/Tmp/Screenfetch");
+put	/Tmp/Screenfetch/Logo128x152.bmp	Logo128x152.bmp
+put	/Tmp/Screenfetch/Screenfetch.HC.Z	Screenfetch.HC
+put	/Tmp/Screenfetch.MF	manifest
+command	PkgMakeFromDir("/Tmp/Screenfetch.MF", "/Tmp/Screenfetch");
+list	/Tmp/Screenfetch.ISO.C	Screenfetch.ISO.C
+list	/Tmp/Screenfetch.MF	Screenfetch.MF
+command	DelTree("/Tmp/Screenfetch");
