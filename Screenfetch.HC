@@ -46,6 +46,15 @@ I64 GetNumFilesInDirectory(U8* dir) {
   return count;
 }
 
+U8* FindDefine(U8* name) {
+  CHash* result = HashFind(name, Fs->hash_table, HTT_DEFINE_STR);
+
+  if (result)
+    return result(CHashDefineStr *)->data;
+  else
+    return NULL;
+}
+
 CHashFun* FindFunction(U8* name) {
   CHash* result = HashFind(name, Fs->hash_table, HTT_FUN);
 
@@ -61,10 +70,12 @@ U8* DetectCPU() {
 }
 
 U8* DetectFont() {
-  // FIXME: Actually detect - but how?
-  // If there was something like a global hash-table,
-  // we could use it to mark user Fonts & Palettes
-  return "FontStd.HC";
+  U8* font = FindDefine("USER_FONT");
+
+  if (!font)
+    font = "FontStd";
+
+  return font;
 }
 
 U8* DetectNumPackages() {
@@ -89,9 +100,13 @@ U8* DetectRAM() {
 }
 
 U8* DetectPalette() {
-  // FIXME: Actually detect - but how?
-  // See comment in DetectFont
-  return "PalUbuntu.HC";
+  // See Shrine's PalUbuntu.HC for how to set this globally
+  U8* palette = FindDefine("USER_PALETTE");
+
+  if (!palette)
+    palette = "VGA";
+
+  return palette;
 }
 
 U8* DetectShell() {
