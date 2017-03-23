@@ -131,7 +131,13 @@ U8* DetectUptime() {
 U0 Screenfetch() {
   Line();
 
-  U8* logo_path = MStrPrint("%s/Logo128x152.bmp", screenfetch_dir);
+  U8* os_name = OS_NAME;
+
+  U8* logo_path;
+  if (StrFind("Shrine", os_name))
+    logo_path = MStrPrint("%s/Shrine128x152.bmp", screenfetch_dir);
+  else
+    logo_path = MStrPrint("%s/Logo128x152.bmp", screenfetch_dir);
   DocBMP(DocPut, logo_path);
   Free(logo_path);
 
@@ -141,7 +147,7 @@ U0 Screenfetch() {
   Line(buf, "");
   Line();
   Line();
-  Line("OS",          OS_NAME);
+  Line("OS",          os_name);
   Line("Kernel",      "TempleOS");
   Line("Uptime",      DetectUptime());
   Line("Packages",    DetectNumPackages());
