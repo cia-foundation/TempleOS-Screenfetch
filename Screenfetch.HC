@@ -163,5 +163,14 @@ U0 Screenfetch() {
   Line();
   Line();
 
-  "$FG$";
+  Sleep(33);
+
+  CDateStruct ds;
+  Date2Struct(&ds,Now+local_time_offset);
+  StrPrint(buf, "%02d-%02dT%02d-%02d-%02d.BMP",
+      ds.mon, ds.day_of_mon, ds.hour, ds.min, ds.sec);
+
+  BMPScrnCapture(buf);
+
+  "Saved $FG,2$%s\n$FG$", buf;
 }
