@@ -1,8 +1,9 @@
 name	screenfetch
-website	https://github.com/minexew/TempleOS-Screenfetch
+website	https://github.com/cia-foundation/TempleOS-Screenfetch
 pkgmin	10
 iso.c	::/Tmp/Screenfetch.ISO.C
 osmin	503
-version	2
-release	2
+osmax	600
+version	3
+release	3
 installdir	::/Apps/Screenfetch

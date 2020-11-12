@@ -1,5 +1,7 @@
 // vim: set ft=cpp:
 
+#include "/Apps/Screenfetch/FileBMP"
+
 #define OS_NAME "$TX+CX,"TempleOS",D="DD_OS_NAME_VERSION"$"
 
 U8 buf[256];

@@ -2,6 +2,7 @@
 
 # Screenfetch
 command	DirMk("/Tmp/Screenfetch");
+put	/Tmp/Screenfetch/FileBMP.HC.Z	FileBMP.HC
 put	/Tmp/Screenfetch/Logo128x152.bmp	Logo128x152.bmp
 put	/Tmp/Screenfetch/Screenfetch.HC.Z	Screenfetch.HC
 put	/Tmp/Screenfetch/Shrine128x152.bmp	Shrine128x152.bmp
